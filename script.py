@@ -5,8 +5,18 @@ import os
 from slack import WebClient
 from slack.errors import SlackApiError
 
-default_channel = "devops-notifications"
+# Github block
+github_action_url = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]  + "/checks" 
+github_commit = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]
+github_wokflow = os.environ["GITHUB_WORKFLOW"]
 
+# Default Vars block
+default_channel = "devops-notifications"
+job_attachment = [] 
+job_message = ""
+job_color = ""
+
+# Input Vars
 if not "SLACK_API_TOKEN" in os.environ:
     raise Exception('SLACK_API_TOKEN env is missing. Please add it to this action for proper execution.')
 slack_token = os.environ["SLACK_API_TOKEN"]
@@ -20,28 +30,36 @@ if not "SLACK_USER_ID" in os.environ:
 else:
   channel = os.environ["SLACK_USER_ID"]
 
-color = os.environ["INPUT_COLOR"]
-print(f"COlor o que lo que {color}")
-
 
 status = os.environ['DEPLOYMENT_STATUS']
 
-if status == "True":
-    color = "#26C10A"
+# Colors block
+job_status = os.environ["INPUT_JOB_STATUS"]
+print(f"Job Status: {job_status}")
+
+if job_status == "success" and status == "True":
+    deployment_color = "#26C10A"
     deployment_message = "SUCCESS"
+
+elif job_status == "failure" and status == "True":
+   # Job is failure in some step
+   job_attachment = "jobATTCH"
+   job_message = "Github Action Failure"
+   job_color = "#FF0000"
+
+   # deployment to cloud run is success
+   deployment_color = "#26C10A"
+   deployment_message = "SUCCESS"
 else:
-    color = "#FF0000"
-    deployment_message = "FAILURE"
+   deployment_color = "#FF0000"
+   deployment_message = "FAILURE"
 
-print(f"::set-output name=message_id::{status}")
-# slack_token = os.environ["INPUT_CHANNEL_ID"]
-# slack_token = os.environ[""]
-# slack_token = os.environ["SLACK_API_TOKEN"]
-# slack_token = os.environ["SLACK_API_TOKEN"]
-
-repo_github_action_url = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]  + "/checks" 
-github_wokflow = os.environ["GITHUB_WORKFLOW"]
-print(repo_github_action_url)
+# print(f"::set-output name=message_id::{status}")
+print(f"j_message: { job_message }")
+print(f"j_color: { job_color }")
+print(f"j_attachment: { job_attachment}")
+print(f"d_message: { deployment_message}")
+print(f"d_color: { deployment_color}")
 
 client = WebClient(token=slack_token)
 message_attachments = [
@@ -59,7 +77,7 @@ message_attachments = [
             "fields": [
                                 {
                     "title": "Cloud Run deploy URL",
-                    "value": "<http://i.imgur.com/nwo13SM.png|Link to cloud run>",
+                    "value": f"<{ cloud_run_deployment_url }|Link to cloud run>",
                     "short": True
                 },
                 {
