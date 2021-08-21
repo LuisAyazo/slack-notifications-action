@@ -73,12 +73,12 @@ message_attachments = [
             "title": "Link to..",
             "title_link": "https://api.slack.com/",
             # "title": "other",
-            "text": f":warning: :sos: Errror in github actions :sos::warning: {status} ",
+            "text": f":warning: :sos: Errror in github actions :sos::warning: ",
             "fields": [
                                 {
                     "title": "Cloud Run deploy URL",
                     "value": f"<{ cloud_run_deployment_url }|Link to cloud run>",
-                    "short": False
+                    "short": true
                 },
                 {
                     "title": "Actions URL",
