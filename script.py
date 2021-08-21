@@ -53,7 +53,7 @@ message_attachments = [
             "title": "Link to..",
             "title_link": "https://api.slack.com/",
             # "title": "other",
-            "text": "Optional `text` that appears within the attachment",
+            "text": f"{status} Optional `text` that appears within the attachment",
             "fields": [
                                 {
                     "title": "Cloud Run deploy URL",
