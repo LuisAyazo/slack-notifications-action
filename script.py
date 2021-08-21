@@ -78,7 +78,7 @@ message_attachments = [
                                 {
                     "title": "Cloud Run deploy URL",
                     "value": f"<{ cloud_run_deployment_url }|Link to cloud run>",
-                    "short": true
+                    "short": True
                 },
                 {
                     "title": "Actions URL",
