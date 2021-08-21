@@ -24,7 +24,8 @@ color = os.environ["INPUT_COLOR"]
 print(f"COlor o que lo que {color}")
 
 
-status = os.environ['INPUT_DEPLOYMENT_STATUS']
+status = os.environ['DEPLOYMENT_STATUS']
+# status = os.environ['INPUT_DEPLOYMENT_STATUS']
 print(status)
 print(f"::set-output name=message_id::{status}")
 # slack_token = os.environ["INPUT_CHANNEL_ID"]
