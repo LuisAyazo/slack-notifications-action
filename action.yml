@@ -24,6 +24,9 @@ inputs:
   deployment_url:
     description: 'The URL of the cloud run deployment'
     required: true
+  deployment_status:
+    description: 'The URL of the cloud run deployment'
+    required: false
 outputs:
   message_id:
     description: 'The unique timestamp identifier of the Slack message sent'
