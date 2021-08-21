@@ -30,10 +30,8 @@ if not "SLACK_USER_ID" in os.environ:
 else:
   channel = os.environ["SLACK_USER_ID"]
 
-
-status = os.environ['DEPLOYMENT_STATUS']
-
 # Colors block
+status = os.environ['DEPLOYMENT_STATUS']
 job_status = os.environ["INPUT_JOB_STATUS"]
 print(f"Job Status: {job_status}")
 
@@ -60,6 +58,7 @@ print(f"j_color: { job_color }")
 print(f"j_attachment: { job_attachment}")
 print(f"d_message: { deployment_message}")
 print(f"d_color: { deployment_color}")
+print(f"d_url: { cloud_run_deployment_url }")
 
 client = WebClient(token=slack_token)
 message_attachments = [
@@ -73,7 +72,7 @@ message_attachments = [
             "title": "Link to..",
             "title_link": "https://api.slack.com/",
             # "title": "other",
-            "text": f":warning: :sos: Errror in github actions :sos::warning: ",
+            "text": ":warning: :sos: Errror in github actions :sos::warning: ",
             "fields": [
                                 {
                     "title": "Cloud Run deploy URL",
