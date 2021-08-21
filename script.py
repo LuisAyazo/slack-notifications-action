@@ -27,7 +27,7 @@ print(f"COlor o que lo que {color}")
 status = os.environ['DEPLOYMENT_STATUS']
 # status = os.environ['INPUT_DEPLOYMENT_STATUS']
 print(status)
-print(status[1])
+# print(status[1])
 # print(status['reason'])
 # print(status['message'])
 print(f"::set-output name=message_id::{status}")
