@@ -73,7 +73,7 @@ message_attachments = [
             "title": "Link to..",
             "title_link": "https://api.slack.com/",
             # "title": "other",
-            "text": f"{status} Optional `text` that appears within the attachment",
+            "text": f":warning: :sos: Errror in github actions :sos::warning: {status} ",
             "fields": [
                                 {
                     "title": "Cloud Run deploy URL",
@@ -82,12 +82,12 @@ message_attachments = [
                 },
                 {
                     "title": "Actions URL",
-                    "value": f"<{ repo_github_action_url }|Github action: { github_wokflow }>",
+                    "value": f"<{ github_action_url }|Github action: { github_wokflow }>",
                     "short": True
                 },
                 {
                     "title": "Commit",
-                    "value": "<http://i.imgur.com/nwo13SM.png|Commit>",
+                    "value": f"<{ github_commit }|Commit>",
                     "short": True
                 },
                 {

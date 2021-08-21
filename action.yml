@@ -14,10 +14,9 @@ inputs:
   #status:
     #description: 'The status to list in the update.'
     #required: true
-  color:
-    description: 'The color of the Slack attachment.'
-    required: true
-    default: '#cccccc'
+  job_status:
+    description: 'Info Previos job status. looking for error'
+    required: false
   message_id:
     description: 'The ID of the existing Slack message to update.'
     required: false
