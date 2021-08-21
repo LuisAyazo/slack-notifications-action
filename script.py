@@ -1,6 +1,6 @@
 import os
 import requests  # noqa We are just importing this to prove the dependency installed correctly
-
+import json
 
 def main():
     my_input = os.environ["INPUT_CHANNEL"]
