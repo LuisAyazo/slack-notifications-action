@@ -24,19 +24,19 @@ color = os.environ["INPUT_COLOR"]
 print(f"COlor o que lo que {color}")
 
 
-reason = os.environ['DEPLOYMENT_STATUS']
+status = os.environ['DEPLOYMENT_STATUS']
 
-if 'HealthCheckContainerError' in reason:
-    color = "#FF0000"
-else:
+if status == "True":
     color = "#26C10A"
+else:
+    color = "#FF0000"
 
 # status = os.environ['INPUT_DEPLOYMENT_STATUS']
-print(reason)
+print(status)
 # print(status[1])
-# print(status['reason'])
+# print(status['status'])
 # print(status['message'])
-print(f"::set-output name=message_id::{reason}")
+print(f"::set-output name=message_id::{status}")
 # slack_token = os.environ["INPUT_CHANNEL_ID"]
 # slack_token = os.environ[""]
 # slack_token = os.environ["SLACK_API_TOKEN"]
@@ -59,7 +59,7 @@ message_attachments = [
             "title": "Link to..",
             "title_link": "https://api.slack.com/",
             # "title": "other",
-            "text": f"{reason} Optional `text` that appears within the attachment",
+            "text": f"{status} Optional `text` that appears within the attachment",
             "fields": [
                                 {
                     "title": "Cloud Run deploy URL",
