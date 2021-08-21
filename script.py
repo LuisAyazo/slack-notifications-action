@@ -52,6 +52,7 @@ else:
    deployment_color = "#FF0000"
    deployment_message = "FAILURE"
 
+# Prints Block
 print(f"::set-output name=message_id::seguire probando esto")
 print(f"j_message: { job_message }")
 print(f"j_color: { job_color }")
@@ -59,6 +60,10 @@ print(f"j_attachment: { job_attachment}")
 print(f"d_message: { deployment_message}")
 print(f"d_color: { deployment_color}")
 print(f"d_url: { cloud_run_deployment_url }")
+print(f"GITHUB_JOB: { os.environ["GITHUB_JOB"] }")
+print(f"GITHUB_ACTOR: { os.environ["GITHUB_ACTOR"] }")
+print(f"GITHUB_EVENT_NAME: { os.environ["GITHUB_EVENT_NAME"] }")
+
 
 client = WebClient(token=slack_token)
 message_attachments = [
