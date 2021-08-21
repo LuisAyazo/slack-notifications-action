@@ -21,7 +21,7 @@ inputs:
   message_id:
     description: 'The ID of the existing Slack message to update.'
     required: false
-  deploy_url:
+  deployment_url:
     description: 'The URL of the cloud run deployment'
     required: true
 outputs:
