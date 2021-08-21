@@ -65,7 +65,7 @@ client = WebClient(token=slack_token)
 message_attachments = [
         {
 	        "mrkdwn_in": ["text"],
-            "color": f"{color}",
+            "color": f"{deployment_color}",
             "pretext": "_Deployment created for_ *CLIENT-WEB* _branch:_ `v0.0.1` ",
             "author_name": "author_name",
             "author_link": "http://flickr.com/bobby/",
