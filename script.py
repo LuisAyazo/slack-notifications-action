@@ -32,11 +32,11 @@ else:
     color = "#26C10A"
 
 # status = os.environ['INPUT_DEPLOYMENT_STATUS']
-print(status)
+print(reason)
 # print(status[1])
 # print(status['reason'])
 # print(status['message'])
-print(f"::set-output name=message_id::{status}")
+print(f"::set-output name=message_id::{reason}")
 # slack_token = os.environ["INPUT_CHANNEL_ID"]
 # slack_token = os.environ[""]
 # slack_token = os.environ["SLACK_API_TOKEN"]
