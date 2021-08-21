@@ -78,17 +78,17 @@ message_attachments = [
                                 {
                     "title": "Cloud Run deploy URL",
                     "value": f"<{ cloud_run_deployment_url }|Link to cloud run>",
-                    "short": True
+                    "short": False
                 },
                 {
                     "title": "Actions URL",
                     "value": f"<{ github_action_url }|Github action: { github_wokflow }>",
-                    "short": True
+                    "short": False
                 },
                 {
                     "title": "Commit",
                     "value": f"<{ github_commit }|Commit>",
-                    "short": True
+                    "short": False
                 },
                 {
                     "title": "Status",
