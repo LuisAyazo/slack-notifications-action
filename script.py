@@ -24,8 +24,8 @@ color = os.environ["INPUT_COLOR"]
 print(f"COlor o que lo que {color}")
 
 
-# status = os.environ['DEPLOYMENT_STATUS']
-status = os.environ['INPUT_DEPLOYMENT_STATUS']
+status = os.environ['DEPLOYMENT_STATUS']
+# status = os.environ['INPUT_DEPLOYMENT_STATUS']
 print(status)
 print(status[1])
 # print(status['reason'])
