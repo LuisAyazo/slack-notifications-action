@@ -14,7 +14,7 @@ def main():
 
 
     
-    myobj = {'event_name': 'Test from custom github action'}
+    myobj = {'text': 'Test from custom github action'}
 
     x = requests.post(webhook, data = myobj)
 
