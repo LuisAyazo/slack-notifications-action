@@ -22,6 +22,9 @@ else:
 
 color = os.environ["INPUT_COLOR"]
 print(f"COlor o que lo que {color}")
+
+
+print(os.environ['INPUT_DEPLOYMENT_STATUS'])
 # slack_token = os.environ["INPUT_CHANNEL_ID"]
 # slack_token = os.environ[""]
 # slack_token = os.environ["SLACK_API_TOKEN"]
