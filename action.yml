@@ -1,16 +1,40 @@
 name: 'Slack Notification Action'
 author: 'Luis J. Ayazo H.'
 description: 'Send notification to Slack'
+branding:
+  icon: message-square
+  color: orange
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  channel:
+    description: 'The Slack channel name. Required if no `channel_id` provided.'
+    required: false
+  channel_id:
+    description: 'The Slack channel ID. Required if no `channel` provided.'
+    required: false
+  status:
+    description: 'The status to list in the update.'
     required: true
-    default: 'World'
+  color:
+    description: 'The color of the Slack attachment.'
+    required: true
+    default: '#cccccc'
+  message_id:
+    description: 'The ID of the existing Slack message to update.'
+    required: false
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
+  message_id:
+    description: 'The unique timestamp identifier of the Slack message sent'
+
+#inputs:
+  #who-to-greet:  # id of input
+    #description: 'Who to greet'
+    #required: true
+    #default: 'World'
+#outputs:
+  #time: # id of output
+    #description: 'The time we greeted you'
+#runs:
+  #using: 'docker'
+  #image: 'Dockerfile'
+  #args:
+    #- ${{ inputs.who-to-greet }}
