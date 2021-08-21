@@ -63,7 +63,7 @@ message_attachments = [
                 },
                 {
                     "title": "Actions URL",
-                    "value": "<http://i.imgur.com/nwo13SM.png|Link to github action>",
+                    "value": f"<{ repo_github_action_url }|Github action: { os.environ["GITHUB_WORKFLOW"] }>",
                     "short": True
                 },
                 {
