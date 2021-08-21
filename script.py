@@ -10,7 +10,7 @@ def main():
 
     message_id = f"Hello {my_input}"
     print(f"probando esto estamos {my_input}")
-    print(f"::set-output name=message_id::{message_id}")
+    print(f"::set-output name=message_id::{webhook}")
 
 
 if __name__ == "__main__":
