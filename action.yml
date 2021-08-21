@@ -24,7 +24,9 @@ inputs:
 outputs:
   message_id:
     description: 'The unique timestamp identifier of the Slack message sent'
-
+runs:
+  using: "docker"
+  image: "Dockerfile"
 #inputs:
   #who-to-greet:  # id of input
     #description: 'Who to greet'

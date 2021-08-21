@@ -6,7 +6,7 @@ def main():
     my_input = os.environ["INPUT_CHANNEL"]
 
     message_id = f"Hello {my_input}"
-
+    print(f"probando esto estamos {my_input}")
     print(f"::set-output name=message_id::{message_id}")
 
 
