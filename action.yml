@@ -11,9 +11,9 @@ inputs:
   channel_id:
     description: 'The Slack channel ID. Required if no `channel` provided.'
     required: false
-  status:
-    description: 'The status to list in the update.'
-    required: true
+  #status:
+    #description: 'The status to list in the update.'
+    #required: true
   color:
     description: 'The color of the Slack attachment.'
     required: true
