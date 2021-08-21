@@ -28,8 +28,10 @@ status = os.environ['DEPLOYMENT_STATUS']
 
 if status == "True":
     color = "#26C10A"
+    deployment_message = "SUCCESS"
 else:
     color = "#FF0000"
+    deployment_message = "FAILURE"
 
 # status = os.environ['INPUT_DEPLOYMENT_STATUS']
 print(status)
@@ -78,7 +80,7 @@ message_attachments = [
                 },
                 {
                     "title": "Status",
-                    "value": "SUCCESS",
+                    "value": f"{deployment_message}",
                     "short": True
                 }
             ],
