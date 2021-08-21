@@ -83,12 +83,12 @@ message_attachments = [
                 {
                     "title": "Actions URL",
                     "value": f"<{ github_action_url }|Github action: { github_wokflow }>",
-                    "short": False
+                    "short": True
                 },
                 {
                     "title": "Commit",
                     "value": f"<{ github_commit }|Commit>",
-                    "short": False
+                    "short": True
                 },
                 {
                     "title": "Status",
