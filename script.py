@@ -6,7 +6,7 @@ def main():
     my_input = os.environ["INPUT_CHANNEL"]
     webhook = os.environ["SLACK_WEBHOOK"]
     
-    print(f" WEBHOOK FROM SLACK: {my_input}")
+    print(f" WEBHOOK FROM SLACK: {webhook}")
 
     message_id = f"Hello {my_input}"
     print(f"probando esto estamos {my_input}")
