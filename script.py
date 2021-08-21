@@ -24,7 +24,13 @@ color = os.environ["INPUT_COLOR"]
 print(f"COlor o que lo que {color}")
 
 
-status = os.environ['DEPLOYMENT_STATUS']
+reason = os.environ['DEPLOYMENT_STATUS']
+
+if 'HealthCheckContainerError' in reason:
+    color = "#FF0000"
+else:
+    color = "#26C10A"
+
 # status = os.environ['INPUT_DEPLOYMENT_STATUS']
 print(status)
 # print(status[1])
@@ -45,7 +51,7 @@ client = WebClient(token=slack_token)
 message_attachments = [
         {
 	        "mrkdwn_in": ["text"],
-            "color": "#36a64f",
+            "color": f"{color}",
             "pretext": "_Deployment created for_ *CLIENT-WEB* _branch:_ `v0.0.1` ",
             "author_name": "author_name",
             "author_link": "http://flickr.com/bobby/",
