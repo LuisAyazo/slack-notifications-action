@@ -39,7 +39,8 @@ print(f"::set-output name=message_id::{status}")
 # slack_token = os.environ["SLACK_API_TOKEN"]
 # slack_token = os.environ["SLACK_API_TOKEN"]
 
-repo_github_action_url = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]  + "/checks|" + os.environ["GITHUB_WORKFLOW"]
+repo_github_action_url = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]  + "/checks" 
+github_wokflow = os.environ["GITHUB_WORKFLOW"]
 print(repo_github_action_url)
 
 client = WebClient(token=slack_token)
@@ -63,7 +64,7 @@ message_attachments = [
                 },
                 {
                     "title": "Actions URL",
-                    "value": f"<{ repo_github_action_url }|Github action: { os.environ["GITHUB_WORKFLOW"] }>",
+                    "value": f"<{ repo_github_action_url }|Github action: { github_wokflow }>",
                     "short": True
                 },
                 {
