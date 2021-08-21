@@ -13,5 +13,12 @@ def main():
     print(f"::set-output name=message_id::{webhook}")
 
 
+    
+    myobj = {'event_name': 'Test from custom github action'}
+
+    x = requests.post(webhook, data = myobj)
+
+    print(x.text)
+
 if __name__ == "__main__":
     main()
