@@ -39,7 +39,7 @@ print(f"::set-output name=message_id::{status}")
 # slack_token = os.environ["SLACK_API_TOKEN"]
 # slack_token = os.environ["SLACK_API_TOKEN"]
 
-repo_github_action_url = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_SERVER_URL"] + "/commit/" + os.environ["GITHUB_SHA"]  + "/checks|" + os.Getenv("GITHUB_WORKFLOW")
+repo_github_action_url = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]  + "/checks|" + os.Getenv("GITHUB_WORKFLOW")
 print(repo_github_action_url)
 
 client = WebClient(token=slack_token)
