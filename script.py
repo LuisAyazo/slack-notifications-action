@@ -52,7 +52,7 @@ else:
    deployment_color = "#FF0000"
    deployment_message = "FAILURE"
 
-# print(f"::set-output name=message_id::{status}")
+print(f"::set-output name=message_id::seguire probando esto")
 print(f"j_message: { job_message }")
 print(f"j_color: { job_color }")
 print(f"j_attachment: { job_attachment}")
@@ -71,10 +71,9 @@ message_attachments = [
             "author_icon": "https://placeimg.com/16/16/people",
             "title": "Link to..",
             "title_link": "https://api.slack.com/",
-            # "title": "other",
             "text": ":warning: :sos: Errror in github actions :sos::warning: ",
             "fields": [
-                                {
+                {
                     "title": "Cloud Run deploy URL",
                     "value": f"<{ cloud_run_deployment_url }|Link to cloud run>",
                     "short": True
