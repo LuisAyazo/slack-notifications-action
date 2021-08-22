@@ -123,7 +123,7 @@ try:
       attachments=message_attachments
     )
 
-  print(f"::set-output name=message_id::{ response.ts }")
+    print(f"::set-output name=message_id::{ response.ts }")
   
   else:
     response = client.chat_update(
