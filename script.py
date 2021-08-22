@@ -120,7 +120,7 @@ try:
     response = client.chat_postMessage(
       channel=channel,
       text="Hello im your DevBot! :tada:",
-      attachments=message_attachments
+      attachments=message_attachments,
       icon_url="http://lorempixel.com/48/48"
     )
     messa
@@ -130,7 +130,7 @@ try:
     response = client.chat_update(
       channel=channel,
       ts=message_id,
-      text="updates from your DevBot! :tada:"
+      text="updates from your DevBot! :tada:",
       icon_url="http://lorempixel.com/48/48"
 
     )
