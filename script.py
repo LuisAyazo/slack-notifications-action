@@ -9,7 +9,8 @@ from slack.errors import SlackApiError
 github_job = os.environ["GITHUB_JOB"]
 github_user = os.environ["GITHUB_ACTOR"] 
 github_event = os.environ["GITHUB_EVENT_NAME"]
-github_branch_tag = os.environ["GITHUB_REF"]
+# github_branch_tag = os.environ["GITHUB_REF"]
+github_branch_tag = '/'.join(os.environ["GITHUB_REF"].split("/")[2:])}
 github_action_url = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]  + "/checks" 
 github_commit = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]
 github_wokflow = os.environ["GITHUB_WORKFLOW"]
@@ -67,7 +68,7 @@ print(f"d_url: { cloud_run_deployment_url }")
 print(f"GITHUB_JOB: { github_job }")
 print(f"GITHUB_ACTOR: { github_user }")
 print(f"GITHUB_EVENT_NAME: { github_event}")
-print(f"GITHUB_REF: { github_branch_tag }")
+print(f"GITHUB_REF: { '/'.join(github_branch_tag.split("/")[2:])}")
 
 # Slack Block
 client = WebClient(token=slack_token)
@@ -75,7 +76,7 @@ message_attachments = [
         {
 	        "mrkdwn_in": ["text"],
             "color": f"{deployment_color}",
-            "pretext": "_Deployment created for_ *CLIENT-WEB* _branch:_ `v0.0.1` ",
+            "pretext": f"_Deployment created for_ *CLIENT-WEB* _branch:_ `` ",
             "author_name": "author_name",
             "author_link": "http://flickr.com/bobby/",
             "author_icon": "https://placeimg.com/16/16/people",
