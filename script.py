@@ -62,6 +62,7 @@ elif job_status == "failure" and status == "True":
    deployment_color = "#26C10A"
    deployment_message = "SUCCESS"
 else:
+   #  job_status = cancelled
    deployment_color = "#FF0000"
    deployment_message = "FAILURE"
                 
