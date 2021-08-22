@@ -119,17 +119,20 @@ try:
   if not message_id:
     response = client.chat_postMessage(
       channel=channel,
-      text="Hello im your devbot! :tada:",
+      text="Hello im your DevBot! :tada:",
       attachments=message_attachments
+      icon_url="http://lorempixel.com/48/48"
     )
-
+    messa
     print(f"::set-output name=message_id::{ response['ts'] }")
   
   else:
     response = client.chat_update(
-      channel="C0XXXXXX",
-      ts="1476746830.000003",
-      text="updates from your app! :tada:"
+      channel=channel,
+      ts=message_id,
+      text="updates from your DevBot! :tada:"
+      icon_url="http://lorempixel.com/48/48"
+
     )
 
   # response = client.conversations_open(users=["UEQM4T18W"])
