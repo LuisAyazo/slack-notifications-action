@@ -123,7 +123,6 @@ try:
       attachments=message_attachments,
       icon_url="http://lorempixel.com/48/48"
     )
-    messa
     print(f"::set-output name=message_id::{ response['ts'] }")
   
   else:
