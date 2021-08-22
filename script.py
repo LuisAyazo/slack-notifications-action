@@ -35,6 +35,10 @@ if not "SLACK_USER_ID" in os.environ:
 else:
   channel = os.environ["SLACK_USER_ID"]
 
+if 'INPUT_MESSAGE_ID' in os.environ:
+    message_id = os.environ["INPUT_MESSAGE_ID"]
+
+
 # Colors block
 status = os.environ['DEPLOYMENT_STATUS']
 job_status = os.environ["INPUT_JOB_STATUS"]
@@ -58,7 +62,6 @@ else:
    deployment_message = "FAILURE"
                 
 # Prints Block
-print(f"::set-output name=message_id::seguire probando esto")
 print(f"j_message: { job_message }")
 print(f"j_color: { job_color }")
 print(f"j_attachment: { job_attachment}")
@@ -113,12 +116,21 @@ message_attachments = [
     ]
 
 try:
-  # if !channel
-  response = client.chat_postMessage(
-    channel=channel,
-    text="Hello from your app! :tada:",
-    attachments=message_attachments
-  )
+  if not message_id:
+    response = client.chat_postMessage(
+      channel=channel,
+      text="Hello im your devbot! :tada:",
+      attachments=message_attachments
+    )
+
+  print(f"::set-output name=message_id::{ response.ts }")
+  
+  else:
+    response = client.chat_update(
+      channel="C0XXXXXX",
+      ts="1476746830.000003",
+      text="updates from your app! :tada:"
+    )
 
   # response = client.conversations_open(users=["UEQM4T18W"])
 except SlackApiError as e:
