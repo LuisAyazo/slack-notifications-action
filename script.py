@@ -80,8 +80,8 @@ message_attachments = [
             "author_name": f"{ github_user }",
             "author_link": "http://flickr.com/bobby/",
             "author_icon": "https://placeimg.com/16/16/people",
-            # "title": "Link to..",
-            # "title_link": "https://api.slack.com/",
+            "title": "Link to..",
+            "title_link": "https://api.slack.com/",
             # "text": ":warning: :sos: Errror in github actions :sos::warning: ",
             "fields": [
                 {
