@@ -76,7 +76,7 @@ message_attachments = [
         {
 	        "mrkdwn_in": ["text"],
             "color": f"{deployment_color}",
-            "pretext": f"_Deployment created for_ *CLIENT-WEB* _branch:_ `` ",
+            "pretext": f"_Deployment created for_ *CLIENT-WEB* _branch:_ `{ github_branch_tag}` ",
             "author_name": f"{ github_user }",
             "author_link": "http://flickr.com/bobby/",
             "author_icon": "https://placeimg.com/16/16/people",
