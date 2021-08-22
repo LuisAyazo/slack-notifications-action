@@ -39,6 +39,8 @@ if 'INPUT_MESSAGE_ID' in os.environ:
     message_id = os.environ["INPUT_MESSAGE_ID"]
 
 
+def test():
+  return '"text": ":warning::warning: `Errror in github actions` :warning::warning:",'
 # Colors block
 status = os.environ['DEPLOYMENT_STATUS']
 job_status = os.environ["INPUT_JOB_STATUS"]
@@ -53,7 +55,9 @@ elif job_status == "failure" and status == "True":
    job_attachment = "jobATTCH"
    job_message = "Github Action Failure"
    job_color = "#FF0000"
-
+   def test():
+     return '"text": ":warning::warning: `Errror in github actions` :warning::warning:",'
+ 
    # deployment to cloud run is success
    deployment_color = "#26C10A"
    deployment_message = "SUCCESS"
@@ -73,6 +77,8 @@ print(f"GITHUB_ACTOR: { github_user }")
 print(f"GITHUB_EVENT_NAME: { github_event}")
 print(f"GITHUB_REF: { github_branch_tag }")
 
+
+
 # Slack Block
 client = WebClient(token=slack_token)
 message_attachments = [
@@ -85,8 +91,8 @@ message_attachments = [
             "author_icon": "https://placeimg.com/16/16/people",
             # "title": "Link to..",
             # "title_link": "https://api.slack.com/",
+            test
             if job_message: 
-              "text": ":warning::warning: `Errror in github actions` :warning::warning:",
             "fields": [
                 {
                     "title": "Cloud Run deploy URL",
