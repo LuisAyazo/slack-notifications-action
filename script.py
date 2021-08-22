@@ -9,7 +9,7 @@ from slack.errors import SlackApiError
 github_job = os.environ["GITHUB_JOB"]
 github_user = os.environ["GITHUB_ACTOR"] 
 github_event = os.environ["GITHUB_EVENT_NAME"]
-# github_branch_tag = os.environ["GITHUB_REF"]
+github_repo_name = os.environ["GITHUB_REPOSITORY"]
 github_branch_tag = '/'.join(os.environ["GITHUB_REF"].split("/")[2:])
 github_action_url = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]  + "/checks" 
 github_commit = os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"] + "/commit/" + os.environ["GITHUB_SHA"]
@@ -56,7 +56,7 @@ elif job_status == "failure" and status == "True":
 else:
    deployment_color = "#FF0000"
    deployment_message = "FAILURE"
-
+                
 # Prints Block
 print(f"::set-output name=message_id::seguire probando esto")
 print(f"j_message: { job_message }")
@@ -76,13 +76,13 @@ message_attachments = [
         {
 	        "mrkdwn_in": ["text"],
             "color": f"{deployment_color}",
-            "pretext": f"_Deployment created for_ *CLIENT-WEB* _branch:_ `{ github_branch_tag}` ",
+            "pretext": f"_Deployment created for_ *{ github_repo_name }* _ref:_ `{ github_branch_tag}` ",
             "author_name": f"{ github_user }",
             "author_link": "http://flickr.com/bobby/",
             "author_icon": "https://placeimg.com/16/16/people",
             "title": "Link to..",
             "title_link": "https://api.slack.com/",
-            # "text": ":warning: :sos: Errror in github actions :sos::warning: ",
+            "text": ":warning: :sos: Errror in github actions :sos::warning: ",
             "fields": [
                 {
                     "title": "Cloud Run deploy URL",
