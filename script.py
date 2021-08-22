@@ -85,7 +85,8 @@ message_attachments = [
             "author_icon": "https://placeimg.com/16/16/people",
             # "title": "Link to..",
             # "title_link": "https://api.slack.com/",
-            "text": ":warning: :sos: Errror in github actions :sos::warning: ",
+            if job_message: 
+              "text": ":warning::warning: `Errror in github actions` :warning::warning:",
             "fields": [
                 {
                     "title": "Cloud Run deploy URL",
@@ -123,7 +124,7 @@ try:
       attachments=message_attachments,
       icon_url="http://lorempixel.com/48/48"
     )
-    print(f"::set-output name=message_id::{ response['ts'] }")
+    print(f"::set-outut name=message_id::{ response['ts'] }")
   
   else:
     response = client.chat_update(
