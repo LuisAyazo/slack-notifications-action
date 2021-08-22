@@ -68,7 +68,7 @@ print(f"d_url: { cloud_run_deployment_url }")
 print(f"GITHUB_JOB: { github_job }")
 print(f"GITHUB_ACTOR: { github_user }")
 print(f"GITHUB_EVENT_NAME: { github_event}")
-print(f"GITHUB_REF: { '/'.join(github_branch_tag.split("/")[2:])}")
+print(f"GITHUB_REF: { '/'.join(github_branch_tag.split('/')[2:])}")
 
 # Slack Block
 client = WebClient(token=slack_token)
