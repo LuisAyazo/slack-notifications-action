@@ -93,7 +93,6 @@ message_attachments = [
             # "title": "Link to..",
             # "title_link": "https://api.slack.com/",
             print(test())
-            if job_message: 
             "fields": [
                 {
                     "title": "Cloud Run deploy URL",
