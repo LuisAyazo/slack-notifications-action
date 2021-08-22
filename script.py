@@ -68,7 +68,7 @@ print(f"d_url: { cloud_run_deployment_url }")
 print(f"GITHUB_JOB: { github_job }")
 print(f"GITHUB_ACTOR: { github_user }")
 print(f"GITHUB_EVENT_NAME: { github_event}")
-print(f"GITHUB_REF: { '/'.join(github_branch_tag.split('/')[2:])}")
+print(f"GITHUB_REF: { github_branch_tag }")
 
 # Slack Block
 client = WebClient(token=slack_token)
@@ -77,12 +77,12 @@ message_attachments = [
 	        "mrkdwn_in": ["text"],
             "color": f"{deployment_color}",
             "pretext": f"_Deployment created for_ *CLIENT-WEB* _branch:_ `` ",
-            "author_name": "author_name",
+            "author_name": f"{ github_user }",
             "author_link": "http://flickr.com/bobby/",
             "author_icon": "https://placeimg.com/16/16/people",
-            "title": "Link to..",
-            "title_link": "https://api.slack.com/",
-            "text": ":warning: :sos: Errror in github actions :sos::warning: ",
+            # "title": "Link to..",
+            # "title_link": "https://api.slack.com/",
+            # "text": ":warning: :sos: Errror in github actions :sos::warning: ",
             "fields": [
                 {
                     "title": "Cloud Run deploy URL",
