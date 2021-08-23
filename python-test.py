@@ -43,13 +43,13 @@ age = 8
 # cloud_run_deployment_status = "False"
 # cloud_run_deployment_status = os.getenv('DEPLOYMENT_STATUS', '')
 # print(cloud_run_deployment_status)
-cloud_run_deployment_status = "True"
-job_status = "success"
+cloud_run_deployment_status = "False"
+job_status = "cancelled"
 
 # cloud_run_deployment_status = ""
 # job_status = "starting"
 
-message_id="1629743848.000900"
+# message_id="1629745303.001800"
 
 
 
@@ -181,14 +181,15 @@ else:
 
 
 
-# export GITHUB_REF='nose/que/head/master' 
+# export GITHUB_REF='nose/head/master' 
 # export GITHUB_REPOSITORY='luis.git'
 # export GITHUB_ACTOR='LuisAyazo'
 # export GITHUB_SERVER_URL='http://mihija.com/url'
 # export GITHUB_SHA='7as87y786asd'
 # export GITHUB_WORKFLOW='epaaaaa_colombia'
 # export DEPLOYMENT_STATUS='True'
-# export SLACK_API_TOKEN=xoxb-498580303680-2366316234864-XjRxHxjCvUI3uJ16QXNlBscd
+# export SLACK_API_TOKEN=xoxb-498580303680-2366316234864-ngcTQPJPLW9Vsb5tpsdtIua4
+# https://hooks.slack.com/services/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
 github_user = os.environ["GITHUB_ACTOR"] 
 github_user_url = f"https://github.com/{ github_user }"
 

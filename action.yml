@@ -20,7 +20,7 @@ inputs:
     required: false
   deployment_url:
     description: 'The URL of the cloud run deployment'
-    required: true
+    required: false
   deployment_status:
     description: 'The URL of the cloud run deployment'
     required: false
