@@ -161,7 +161,7 @@ try:
   if not message_id:
     response = client.chat_postMessage(
       channel=channel,
-      text="Hello im your DevBot! :tada:",
+      text="*DevBot Action: Deployment* :tada:",
       attachments=literal_attachments,
       icon_url="http://lorempixel.com/48/48"
     )
@@ -171,7 +171,7 @@ try:
     response = client.chat_update(
       channel=channel,
       ts=message_id,
-      text="updates from your DevBot! :tada:",
+      text="*DevBot Action: Deployment update* :tada:",
       icon_url="http://lorempixel.com/48/48"
 
     )
