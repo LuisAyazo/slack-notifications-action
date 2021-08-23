@@ -27,7 +27,7 @@ job_color = ""
 # Input Vars
 channel                     =  os.getenv('INPUT_CHANNEL', default_channel)
 message_id                  =  os.getenv("INPUT_MESSAGE_ID", '')
-job_status                  =  os.getenv("INPUT_JOB_STATUS", '')
+job_status                  =  os.getenv("INPUT_JOB_STATUS")
 cloud_run_deployment_status =  os.getenv('INPUT_DEPLOYMENT_STATUS', '')
 if not "SLACK_API_TOKEN" in os.environ:
     raise Exception('SLACK_API_TOKEN env is missing. Please add it to this action for proper execution.')

@@ -11,12 +11,10 @@ inputs:
   channel_id:
     description: 'The Slack channel ID. Required if no `channel` provided.'
     required: false
-  #status:
-    #description: 'The status to list in the update.'
-    #required: true
   job_status:
     description: 'Info Previos job status. looking for error'
     required: false
+    default: "starting"
   message_id:
     description: 'The ID of the existing Slack message to update.'
     required: false
