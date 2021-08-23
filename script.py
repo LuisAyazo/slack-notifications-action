@@ -5,6 +5,7 @@ import os
 from slack import WebClient
 from slack.errors import SlackApiError
 from jinja2 import Template
+from ast import literal_eval
 
 # Github block
 github_job = os.environ["GITHUB_JOB"]
@@ -153,13 +154,15 @@ template = """
 
 json_data = Template(template)
 message_attachments = json_data.render(data)
+# to avoid repr quote and problem sending attachtments to slack
+literal_attachments = literal_eval(message_attachments)
 
 try:
   if not message_id:
     response = client.chat_postMessage(
       channel=channel,
       text="Hello im your DevBot! :tada:",
-      attachments=message_attachments,
+      attachments=literal_attachments,
       icon_url="http://lorempixel.com/48/48"
     )
     print(f"::set-outut name=message_id::{ response['ts'] }")
